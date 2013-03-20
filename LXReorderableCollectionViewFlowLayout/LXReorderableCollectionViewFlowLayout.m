@@ -169,10 +169,8 @@ static NSString * const kLXScrollingDirectionKey = @"LXScrollingDirection";
                itemAtIndexPath:previousIndexPath
            willMoveToIndexPath:newIndexPath];
     
-    [collectionView performBatchUpdates:^{
-        [collectionView deleteItemsAtIndexPaths:@[previousIndexPath]];
-        [collectionView insertItemsAtIndexPaths:@[newIndexPath]];
-    } completion:nil];
+    [collectionView performBatchUpdates:nil completion:nil];
+    [collectionView moveItemAtIndexPath:previousIndexPath toIndexPath:newIndexPath];
 }
 
 - (void)invalidateScrollTimer
